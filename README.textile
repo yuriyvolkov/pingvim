@@ -15,3 +15,8 @@ Put this in your vimrc along with your personal hacks:
 source ~/.vim/vimrc      "linux
 source ~/vimfiles/vimrc  "windows
 </code></pre>
+
+h2. Credits
+
+* Original project and most of the heavy lifting: @scrooloose
+
