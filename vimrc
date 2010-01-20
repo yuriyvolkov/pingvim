@@ -178,7 +178,7 @@ set expandtab
 set autoindent
 
 "folding settings
-set foldmethod=indent   "fold based on indent
+set foldmethod=syntax   "fold based on indent
 set foldnestmax=3       "deepest fold is 3 levels
 set nofoldenable        "dont fold by default
 
@@ -208,16 +208,35 @@ syntax on
 set mouse=a
 set ttymouse=xterm2
 
-"tell the term has 256 colors
-set t_Co=256
-
 "hide buffers when not displayed
 set hidden
 
-"dont load csapprox if we no gui support - silences an annoying warning
-if !has("gui")
+if has("gui_running")
+		"tell the term has 256 colors
+		set t_Co=256
+
+    if has("gui_gnome")
+        set term=gnome-256color
+        colorscheme twilight
+    else
+        colorscheme twilight
+        set guitablabel=%M%t
+        set lines=40
+        set columns=115
+    endif
+    if has("gui_mac") || has("gui_macvim")
+        set guifont=Menlo:h15
+    endif
+    if has("gui_win32") || has("gui_win32s")
+        set guifont=Consolas:h12
+				set enc=utf-8
+    endif
+else
+		"dont load csapprox if we no gui support - silences an annoying warning
     let g:CSApprox_loaded = 1
 endif
+
+nmap <silent> <Leader>p :NERDTreeToggle<CR>
 
 "make <c-l> clear the highlight as well as redraw
 nnoremap <C-L> :nohls<CR><C-L>
