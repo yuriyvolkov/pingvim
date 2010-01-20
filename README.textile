@@ -1,14 +1,16 @@
 h1. Usage
 
-Clone this repo into your home directory either as .vim (linux) or vimfiles (MF
+Clone this repo into your home directory either as .vim (linux) or vimfiles (MS
 Windows).
 
-Then cd into the repo and run this to get the snippets submodule:
+Then cd into the repo and run this to get all the bundles:
 
 <pre><code>
 git submodule init
 git submodule update
 </code></pre>
+
+Then cd into bundles/snipmate and run the same to get the snippets submodule.
 
 Put this in your vimrc along with your personal hacks:
 <pre><code>
