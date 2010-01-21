@@ -34,3 +34,6 @@
 [submodule "bundles/pastie"]
 	path = bundles/pastie
 	url = git://github.com/tpope/vim-pastie.git
+[submodule "bundles/vim-git"]
+	path = bundles/vim-git
+	url = git://github.com/tpope/vim-git.git
