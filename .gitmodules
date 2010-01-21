@@ -28,3 +28,6 @@
 [submodule "bundles/unimpaired"]
 	path = bundles/unimpaired
 	url = git://github.com/tpope/vim-unimpaired.git
+[submodule "bundles/ragtag"]
+	path = bundles/ragtag
+	url = git://github.com/tpope/vim-ragtag.git
