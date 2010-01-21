@@ -22,6 +22,6 @@ h2. Credits
 
 Thanks to the following people for awesome plugins, hacks and most of the heavy lifting:
 
-    Martin Grenfell (scrooloose)
-    Tim Pope (tpope)
-    Fabio Akita (akitaonrails)
+* Martin Grenfell (scrooloose)
+* Tim Pope (tpope)
+* Fabio Akita (akitaonrails)
