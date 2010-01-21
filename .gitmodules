@@ -31,3 +31,6 @@
 [submodule "bundles/ragtag"]
 	path = bundles/ragtag
 	url = git://github.com/tpope/vim-ragtag.git
+[submodule "bundles/pastie"]
+	path = bundles/pastie
+	url = git://github.com/tpope/vim-pastie.git
