@@ -4,3 +4,6 @@
 [submodule "bundles/nerdtree"]
 	path = bundles/nerdtree
 	url = git://github.com/scrooloose/nerdtree.git
+[submodule "bundles/nerdcommenter"]
+	path = bundles/nerdcommenter
+	url = git://github.com/scrooloose/nerdcommenter.git
