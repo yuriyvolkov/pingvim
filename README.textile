@@ -20,5 +20,8 @@ source ~/vimfiles/vimrc  "windows
 
 h2. Credits
 
-* Original project and most of the heavy lifting: @scrooloose
+Thanks to the following people for awesome plugins, hacks and most of the heavy lifting:
 
+    Martin Grenfell (scrooloose)
+    Tim Pope (tpope)
+    Fabio Akita (akitaonrails)
