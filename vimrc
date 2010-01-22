@@ -231,9 +231,6 @@ if has("gui_running")
         set guifont=Consolas:h12
 				set enc=utf-8
     endif
-else
-		"dont load csapprox if we no gui support - silences an annoying warning
-    let g:CSApprox_loaded = 1
 endif
 
 nmap <silent> <Leader>p :NERDTreeToggle<CR>
