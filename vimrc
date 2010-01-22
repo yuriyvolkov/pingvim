@@ -212,8 +212,8 @@ set ttymouse=xterm2
 set hidden
 
 if has("gui_running")
-		"tell the term has 256 colors
-		set t_Co=256
+    "tell the term has 256 colors
+    set t_Co=256
 
     if has("gui_gnome")
         set term=gnome-256color
@@ -229,7 +229,7 @@ if has("gui_running")
     endif
     if has("gui_win32") || has("gui_win32s")
         set guifont=Consolas:h12
-				set enc=utf-8
+        set enc=utf-8
     endif
 endif
 
