@@ -22,7 +22,7 @@ task :pastie do
 end
 
 desc "Installs plugins for rails development"
-task :rails => [:default] do
+task :rails do
   system("git clone git://github.com/tpope/vim-ragtag.git bundles/ragtag")
   system("git clone git://github.com/vim-ruby/vim-ruby.git bundles/vim-ruby")
   system("git clone git://github.com/tpope/vim-rails.git bundles/vim-rails")
