@@ -3,14 +3,17 @@ h1. Usage
 Clone this repo into your home directory either as .vim (linux) or vimfiles (MS
 Windows).
 
-Then cd into the repo and run this to get all the bundles:
+Then cd into the repo and run this to get default set of bundles:
 
 <pre><code>
-git submodule init
-git submodule update
+rake
 </code></pre>
 
-Then cd into bundles/snipmate and run the same to get the snippets submodule.
+If you intend to do some rails development then run this:
+
+<pre><code>
+rake rails
+</pre></code>
 
 Put this in your vimrc along with your personal hacks:
 <pre><code>
