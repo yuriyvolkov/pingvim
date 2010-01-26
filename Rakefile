@@ -16,18 +16,18 @@ task :git do
   system("git clone git://github.com/tpope/vim-fugitive.git bundles/fugitive")
 end
 
+desc "Performs pastie plugin installation"
+task :pastie do
+  system("git clone git://github.com/tpope/vim-pastie.git bundles/pastie")
+end
+
 desc "Installs plugins for rails development"
-task :rails do
+task :rails => [:default] do
   system("git clone git://github.com/tpope/vim-ragtag.git bundles/ragtag")
   system("git clone git://github.com/vim-ruby/vim-ruby.git bundles/vim-ruby")
   system("git clone git://github.com/tpope/vim-rails.git bundles/vim-rails")
   system("git clone git://github.com/tpope/vim-cucumber.git bundles/vim-cucumber")
   system("git clone git://github.com/tpope/vim-haml.git bundles/vim-haml")
-end
-
-desc "Performs pastie plugin installation"
-task :pastie do
-  system("git clone git://github.com/tpope/vim-pastie.git bundles/pastie")
 end
 
 desc "Performs default installation"
