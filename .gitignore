@@ -16,4 +16,5 @@ bundles/vim-git/*
 bundles/vim-haml/*
 bundles/vim-rails/*
 bundles/vim-ruby/*
-
+bundles/abolish/*
+bundles/repeat/*
