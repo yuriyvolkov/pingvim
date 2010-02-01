@@ -1,3 +1,5 @@
+require 'fileutils'
+
 desc "Performs base installation"
 task :base do
   system("git clone git://github.com/yuriyvolkov/snipmate.vim.git bundles/snipmate")
@@ -32,7 +34,6 @@ task :rails do
   system("git clone git://github.com/tpope/vim-haml.git bundles/vim-haml")
 end
 
-require 'fileutils'
 
 desc "Performs bundles cleanup (delete plugins installed from git source)"
 task :cleanup do
@@ -55,7 +56,7 @@ task :update do
     end unless entry =~ /\.+/
   end
 end
+
 desc "Performs default installation"
 task :default => [:base, :git]
-
 
