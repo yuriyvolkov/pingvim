@@ -9,11 +9,13 @@ Then cd into the repo and run this to get default set of bundles:
 rake
 </code></pre>
 
-If you intend to do some rails development then run this:
+If you intend to do some rails development then you might want to run this:
 
 <pre><code>
 rake rails
 </pre></code>
+
+_Check out Rakefile for some other tasks_.
 
 Put this in your vimrc along with your personal hacks:
 <pre><code>
