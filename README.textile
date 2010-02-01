@@ -15,7 +15,7 @@ If you intend to do some rails development then you might want to run this:
 rake rails
 </pre></code>
 
-_Check out Rakefile for some other tasks_.
+Check out _Rakefile_ for some other tasks.
 
 Put this in your vimrc along with your personal hacks:
 <pre><code>
