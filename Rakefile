@@ -53,6 +53,7 @@ task :update do
     if File.exist?(File.join(bundle, ".git"))
       print "Updating #{entry}: "
       system("cd #{bundle} && git pull")
+      system("cd #{bundle} && git submodule update") unless `cd #{bundle} && git submodule`.empty?
     end unless entry =~ /\.+/
   end
 end
