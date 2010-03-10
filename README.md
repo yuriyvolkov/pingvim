@@ -1,13 +1,13 @@
 Usage
 =====
 
-Clone this repo into your home directory either as `.vim` (linux) or `vimfiles` (MS Windows).
-Then cd into the repo and run `rake` to get default set of bundles.
-If you intend to do some rails development then you might want to run `rake rails`
+* clone this repo into your home directory either as `.vim` (linux) or `vimfiles` (MS Windows)
+* cd into the repo and run `rake` to get default set of plugins
 
-Check out _Rakefile_ for some other tasks.
+If you intend to do some rails development then you might want to run `rake rails` 
+(check out _Rakefile_ for some other tasks).
 
-Put this in your vimrc along with your personal hacks:
+Put this in your `.vimrc` along with your personal hacks:
     source ~/.vim/vimrc      "linux
     source ~/vimfiles/vimrc  "windows
 
