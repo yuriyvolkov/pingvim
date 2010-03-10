@@ -59,5 +59,5 @@ task :update do
 end
 
 desc "Performs default installation"
-task :default => [:base, :git]
+task :default => [:base]
 
