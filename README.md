@@ -5,7 +5,7 @@ Usage
 * cd into the repo and run `rake` to get default set of plugins
 
 If you intend to do some rails development then you might want to run `rake rails` 
-(check out _Rakefile_ for some other tasks).
+(check out `rake -T` for some other tasks).
 
 Put this in your `.vimrc` along with your personal hacks:
     source ~/.vim/vimrc      "linux
