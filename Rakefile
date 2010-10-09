@@ -2,7 +2,7 @@ require 'fileutils'
 
 desc "Performs base installation"
 task :base do
-  system("git clone git://github.com/yuriyvolkov/snipmate.vim.git bundles/snipmate")
+  system("git clone git://github.com/yuriyvolkov/vim-snipmate.git bundles/snipmate")
   system("cd bundles/snipmate && git submodule init && git submodule update")
   system("git clone git://github.com/scrooloose/nerdtree.git bundles/nerdtree")
   system("git clone git://github.com/scrooloose/nerdcommenter.git bundles/nerdcommenter")
@@ -58,6 +58,6 @@ task :update do
   end
 end
 
-desc "Performs default installation"
+desc "=> base"
 task :default => [:base]
 
