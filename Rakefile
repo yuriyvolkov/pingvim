@@ -18,6 +18,7 @@ desc "Performs git plugins installation"
 task :git do
   system("git clone git://github.com/tpope/vim-git.git bundles/vim-git")
   system("git clone git://github.com/tpope/vim-fugitive.git bundles/fugitive")
+  system("git clone git://github.com/int3/vim-extradite.git bundles/vim-extradite")
 end
 
 desc "Performs pastie plugin installation"
