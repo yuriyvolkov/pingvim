@@ -2,10 +2,7 @@ Usage
 =====
 
 * clone this repo into your home directory either as `.vim` (linux) or `vimfiles` (MS Windows)
-* cd into the repo and run `rake` to get default set of plugins
-
-If you intend to do some rails development then you might want to run `rake rails` 
-(check out `rake -T` for some other tasks).
+* cd into the repo and run `rake` to get default set of plugins (checkout Rakefile for the details)
 
 Put this in your `.vimrc` along with your personal hacks:
     source ~/.vim/vimrc      "linux
