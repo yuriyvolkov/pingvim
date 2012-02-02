@@ -59,6 +59,6 @@ task :update do
   end
 end
 
-desc "=> base"
-task :default => [:base]
+desc "Performs all plugins installation"
+task :default => [:base, :git, :rails, :pastie]
 
