@@ -217,7 +217,7 @@ if has("gui_running")
 
     if has("gui_gnome")
         set term=gnome-256color
-        colorscheme twilight
+        colorscheme railscasts
     else
         colorscheme twilight
         set guitablabel=%M%t
