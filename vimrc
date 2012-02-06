@@ -231,6 +231,8 @@ if has("gui_running")
         set guifont=Consolas:h12
         set enc=utf-8
     endif
+else
+    colorscheme xterm16
 endif
 
 nmap <silent> <Leader>p :NERDTreeToggle<CR>
