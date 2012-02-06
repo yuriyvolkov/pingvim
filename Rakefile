@@ -7,7 +7,6 @@ task :speededit do
   system("git clone git://github.com/scrooloose/nerdtree.git bundles/nerdtree")
   system("git clone git://github.com/scrooloose/nerdcommenter.git bundles/nerdcommenter")
   system("git clone git://github.com/scrooloose/syntastic.git bundles/syntastic")
-  system("git clone git://github.com/tpope/vim-endwise.git bundles/endwise")
   system("git clone git://github.com/tpope/vim-surround.git bundles/surround")
   system("git clone git://github.com/tpope/vim-unimpaired.git bundles/unimpaired")
   system("git clone git://github.com/tpope/vim-abolish.git bundles/abolish")
@@ -22,18 +21,27 @@ task :git do
   system("git clone git://github.com/int3/vim-extradite.git bundles/vim-extradite")
 end
 
-desc "Performs webservices plugin installation"
-task :ws do
-  system("git clone git://github.com/tpope/vim-pastie.git bundles/pastie")
+desc "Performs ruby plugins installation"
+task :ruby  do
+  system("git clone git://github.com/vim-ruby/vim-ruby.git bundles/vim-ruby")
+  system("git clone git://github.com/tpope/vim-endwise.git bundles/endwise")
 end
 
-desc "Installs plugins for rails development"
-task :rails do
+desc "Installs plugins for work with different markups"
+task :markup do
   system("git clone git://github.com/tpope/vim-ragtag.git bundles/ragtag")
-  system("git clone git://github.com/vim-ruby/vim-ruby.git bundles/vim-ruby")
+  system("git clone git://github.com/tpope/vim-haml.git bundles/vim-haml")
+end
+
+ddesc "Installs plugins for rails development"
+task :rails [:ruby, :markup] do
   system("git clone git://github.com/tpope/vim-rails.git bundles/vim-rails")
   system("git clone git://github.com/tpope/vim-cucumber.git bundles/vim-cucumber")
-  system("git clone git://github.com/tpope/vim-haml.git bundles/vim-haml")
+end
+
+esc "Performs webservices plugin installation"
+task :ws do
+  system("git clone git://github.com/tpope/vim-pastie.git bundles/pastie")
 end
 
 desc "Installs everything (dummy)"
