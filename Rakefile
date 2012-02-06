@@ -1,7 +1,7 @@
 require 'fileutils'
 
 desc "Performs base installation"
-task :base do
+task :speededit do
   system("git clone git://github.com/yuriyvolkov/vim-snipmate.git bundles/snipmate")
   system("cd bundles/snipmate && git submodule init && git submodule update")
   system("git clone git://github.com/scrooloose/nerdtree.git bundles/nerdtree")
@@ -12,6 +12,7 @@ task :base do
   system("git clone git://github.com/tpope/vim-unimpaired.git bundles/unimpaired")
   system("git clone git://github.com/tpope/vim-abolish.git bundles/abolish")
   system("git clone git://github.com/tpope/vim-repeat.git bundles/repeat")
+  system("git clone git://github.com/kien/ctrlp.vim.git bundles/ctrlp")
 end
 
 desc "Performs git plugins installation"
@@ -21,8 +22,8 @@ task :git do
   system("git clone git://github.com/int3/vim-extradite.git bundles/vim-extradite")
 end
 
-desc "Performs pastie plugin installation"
-task :pastie do
+desc "Performs webservices plugin installation"
+task :ws do
   system("git clone git://github.com/tpope/vim-pastie.git bundles/pastie")
 end
 
@@ -35,6 +36,8 @@ task :rails do
   system("git clone git://github.com/tpope/vim-haml.git bundles/vim-haml")
 end
 
+desc "Installs everything (dummy)"
+task :all => [:speededit, :git, :ws, :rails]
 
 desc "Performs bundles cleanup (delete plugins installed from git source)"
 task :cleanup do
@@ -60,5 +63,5 @@ task :update do
 end
 
 desc "Performs all plugins installation"
-task :default => [:base, :git, :rails, :pastie]
+task :default => :all
 
