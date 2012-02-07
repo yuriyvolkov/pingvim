@@ -28,3 +28,5 @@ bundles/css-color/
 bundles/less/
 bundles/sinatra/
 bundles/tagbar/
+bundles/buffersaurus/
+bundles/indexedsearch/
