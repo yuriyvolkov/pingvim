@@ -6,6 +6,7 @@ task :speededit do
   system("cd bundles/snipmate && git submodule init && git submodule update")
   system("git clone git://github.com/scrooloose/nerdtree.git bundles/nerdtree")
   system("git clone git://github.com/scrooloose/nerdcommenter.git bundles/nerdcommenter")
+  system("git clone git://github.com/vim-scripts/camelcasemotion.git bundles/camelcasemotion")
   system("git clone git://github.com/scrooloose/syntastic.git bundles/syntastic")
   system("git clone git://github.com/tpope/vim-surround.git bundles/surround")
   system("git clone git://github.com/tpope/vim-unimpaired.git bundles/unimpaired")
@@ -33,13 +34,13 @@ task :markup do
   system("git clone git://github.com/tpope/vim-haml.git bundles/vim-haml")
 end
 
-ddesc "Installs plugins for rails development"
-task :rails [:ruby, :markup] do
+desc "Installs plugins for rails development"
+task :rails => [:ruby, :markup] do
   system("git clone git://github.com/tpope/vim-rails.git bundles/vim-rails")
   system("git clone git://github.com/tpope/vim-cucumber.git bundles/vim-cucumber")
 end
 
-esc "Performs webservices plugin installation"
+desc "Performs webservices plugin installation"
 task :ws do
   system("git clone git://github.com/tpope/vim-pastie.git bundles/pastie")
 end
