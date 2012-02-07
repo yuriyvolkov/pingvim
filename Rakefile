@@ -15,6 +15,7 @@ task :speededit do
   system("git clone git://github.com/mileszs/ack.vim.git bundles/ack")
   system("git clone git://github.com/jeetsukumaran/vim-buffersaurus.git bundles/buffersaurus")
   system("git clone git://github.com/vim-scripts/IndexedSearch.git bundles/indexedsearch")
+  system("git clone git://github.com/vim-scripts/matchit.zip.git bundles/matchit")
 
   # text editing speedup
   system("git clone git://github.com/yuriyvolkov/vim-snipmate.git bundles/snipmate")
@@ -71,7 +72,7 @@ task :ws do
 end
 
 desc "Installs everything (dummy)"
-task :all => [:speededit, :git, :ws, :rails]
+task :install => [:speededit, :git, :rails]
 
 desc "Performs bundles cleanup (delete plugins installed from git source)"
 task :cleanup do
@@ -97,5 +98,5 @@ task :update do
 end
 
 desc "Performs all plugins installation"
-task :default => :all
+task :default => :install
 
