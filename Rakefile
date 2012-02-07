@@ -55,6 +55,11 @@ task :rails => [:ruby, :markup] do
   system("git clone git://github.com/tpope/vim-cucumber.git bundles/cucumber")
 end
 
+desc "Installs plugin for sinatra developemtn"
+task :sinatra => [:ruby, :markup] do
+  system("git clone git://github.com/hallison/vim-ruby-sinatra.git bundles/sinatra")
+end
+
 desc "Performs webservices plugin installation"
 task :ws do
   system("git clone git://github.com/tpope/vim-pastie.git bundles/pastie")
