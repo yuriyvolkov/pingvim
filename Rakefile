@@ -45,6 +45,8 @@ desc "Installs plugins for work with different markups"
 task :markup do
   system("git clone git://github.com/tpope/vim-ragtag.git bundles/ragtag")
   system("git clone git://github.com/tpope/vim-haml.git bundles/haml")
+  system("git clone git://github.com/groenewege/vim-less.git bundles/less")
+  system("git clone https://github.com/ap/vim-css-color.git bundles/css-color")
 end
 
 desc "Installs plugins for rails development"
