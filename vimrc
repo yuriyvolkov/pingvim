@@ -241,8 +241,8 @@ nmap <silent> <Leader>p :NERDTreeToggle<CR>
 nnoremap <C-L> :nohls<CR><C-L>
 inoremap <C-L> <C-O>:nohls<CR>
 
-"map to bufexplorer
-nnoremap <C-B> :BufExplorer<cr>
+"map to buffergator
+nnoremap <C-B> :BuffergatorToggle<cr>
 
 "map Q to something useful
 noremap Q gq

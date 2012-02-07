@@ -2,42 +2,54 @@ require 'fileutils'
 
 desc "Performs base installation"
 task :speededit do
+
+  # move around in a hurry
+  system("git clone git://github.com/scrooloose/nerdtree.git bundles/nerdtree")
+  system("git clone git://github.com/kien/ctrlp.vim.git bundles/ctrlp")
+  system("git clone git://github.com/jeetsukumaran/vim-buffergator.git bundles/buffergator")
+  system("git clone git://github.com/tpope/vim-unimpaired.git bundles/unimpaired")
+  system("git clone git://github.com/vim-scripts/camelcasemotion.git bundles/camelcasemotion")
+
+  # text editing speedup
   system("git clone git://github.com/yuriyvolkov/vim-snipmate.git bundles/snipmate")
   system("cd bundles/snipmate && git submodule init && git submodule update")
-  system("git clone git://github.com/scrooloose/nerdtree.git bundles/nerdtree")
-  system("git clone git://github.com/scrooloose/nerdcommenter.git bundles/nerdcommenter")
-  system("git clone git://github.com/vim-scripts/camelcasemotion.git bundles/camelcasemotion")
-  system("git clone git://github.com/scrooloose/syntastic.git bundles/syntastic")
   system("git clone git://github.com/tpope/vim-surround.git bundles/surround")
-  system("git clone git://github.com/tpope/vim-unimpaired.git bundles/unimpaired")
   system("git clone git://github.com/tpope/vim-abolish.git bundles/abolish")
   system("git clone git://github.com/tpope/vim-repeat.git bundles/repeat")
-  system("git clone git://github.com/kien/ctrlp.vim.git bundles/ctrlp")
+
+  # code comments
+  system("git clone git://github.com/scrooloose/nerdcommenter.git bundles/nerdcommenter")
+  #system("git clone git://github.com/tomtom/tcomment_vim.git bundles/tcomment")
+  #system("git clone git://github.com/tpope/vim-commentary.git bundles/commentary")
+
+  # syntax checker
+  system("git clone git://github.com/scrooloose/syntastic.git bundles/syntastic")
+
 end
 
 desc "Performs git plugins installation"
 task :git do
-  system("git clone git://github.com/tpope/vim-git.git bundles/vim-git")
+  system("git clone git://github.com/tpope/vim-git.git bundles/git")
   system("git clone git://github.com/tpope/vim-fugitive.git bundles/fugitive")
-  system("git clone git://github.com/int3/vim-extradite.git bundles/vim-extradite")
+  system("git clone git://github.com/int3/vim-extradite.git bundles/extradite")
 end
 
 desc "Performs ruby plugins installation"
 task :ruby  do
-  system("git clone git://github.com/vim-ruby/vim-ruby.git bundles/vim-ruby")
+  system("git clone git://github.com/vim-ruby/vim-ruby.git bundles/ruby")
   system("git clone git://github.com/tpope/vim-endwise.git bundles/endwise")
 end
 
 desc "Installs plugins for work with different markups"
 task :markup do
   system("git clone git://github.com/tpope/vim-ragtag.git bundles/ragtag")
-  system("git clone git://github.com/tpope/vim-haml.git bundles/vim-haml")
+  system("git clone git://github.com/tpope/vim-haml.git bundles/haml")
 end
 
 desc "Installs plugins for rails development"
 task :rails => [:ruby, :markup] do
-  system("git clone git://github.com/tpope/vim-rails.git bundles/vim-rails")
-  system("git clone git://github.com/tpope/vim-cucumber.git bundles/vim-cucumber")
+  system("git clone git://github.com/tpope/vim-rails.git bundles/rails")
+  system("git clone git://github.com/tpope/vim-cucumber.git bundles/cucumber")
 end
 
 desc "Performs webservices plugin installation"
