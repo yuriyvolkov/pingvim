@@ -303,3 +303,9 @@ function! s:HighlightLongLines(width)
         echomsg "Usage: HighlightLongLines [natural number]"
     endif
 endfunction
+
+"ack setup for Debian/Ubuntu - comment this line out if u have ack binary in
+"your system
+
+let g:ackprg="ack-grep -H --nocolor --nogroup --column"
+

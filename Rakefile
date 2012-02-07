@@ -7,6 +7,7 @@ task :speededit do
   system("git clone git://github.com/scrooloose/nerdtree.git bundles/nerdtree")
   system("git clone git://github.com/kien/ctrlp.vim.git bundles/ctrlp")
   system("git clone git://github.com/jeetsukumaran/vim-buffergator.git bundles/buffergator")
+  system("git clone git://github.com/mileszs/ack.vim.git bundles/ack")
   system("git clone git://github.com/tpope/vim-unimpaired.git bundles/unimpaired")
   system("git clone git://github.com/vim-scripts/camelcasemotion.git bundles/camelcasemotion")
 
