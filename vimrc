@@ -243,6 +243,7 @@ inoremap <C-L> <C-O>:nohls<CR>
 
 "map to buffergator
 nnoremap <C-B> :BuffergatorToggle<cr>
+let g:buffergator_viewport_split_policy="B"
 
 "map Q to something useful
 noremap Q gq
