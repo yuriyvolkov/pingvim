@@ -72,7 +72,9 @@ task :ws do
 end
 
 desc "Installs everything (dummy)"
-task :install => [:speededit, :git, :rails]
+task :install => [:speededit, :git, :rails] do
+  system("git clone git://github.com/yuriyvolkov/vim-colorized.git bundles/vim-colorized")
+end
 
 desc "Performs bundles cleanup (delete plugins installed from git source)"
 task :cleanup do
