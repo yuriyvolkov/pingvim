@@ -74,6 +74,8 @@ end
 desc "Installs everything (dummy)"
 task :install => [:speededit, :git, :rails] do
   system("git clone git://github.com/yuriyvolkov/vim-colorized.git bundles/vim-colorized")
+  system("git clone git://github.com/millermedeiros/vim-statline.git bundles/vim-statline")
+  system("git clone git://github.com/mikewest/vimroom.git bundles/vimroom")
 end
 
 desc "Performs bundles cleanup (delete plugins installed from git source)"
