@@ -171,6 +171,10 @@ function! s:Median(nums)
     endif
 endfunction
 
+"cursor & line numbers settings
+set cursorline
+set number
+
 "indent settings
 set shiftwidth=4
 set softtabstop=4
