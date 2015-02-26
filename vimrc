@@ -20,9 +20,6 @@ Plugin 'scrooloose/nerdtree'
 Plugin 'kien/ctrlp.vim'
 Plugin 'mileszs/ack.vim'
 Plugin 'majutsushi/tagbar'
-Plugin 'jeetsukumaran/vim-buffergator'
-Plugin 'jeetsukumaran/vim-buffersaurus'
-Plugin 'techlivezheng/vim-plugin-minibufexpl'
 Plugin 'vim-scripts/IndexedSearch'
 Plugin 'bling/vim-airline'
 
@@ -135,10 +132,6 @@ else
     colorscheme xterm16
 endif
 
-let g:buffergator_viewport_split_policy="R"
-let g:buffergator_autoexpand_on_split=0
-let g:buffergator_split_size=90
-
 "mark syntax errors with :signs
 let g:syntastic_enable_signs=1
 
@@ -188,8 +181,6 @@ nmap <F8> :TagbarToggle<CR>
 nnoremap <C-L> :nohls<CR><C-L>
 inoremap <C-L> <C-O>:nohls<CR>
 
-"map to buffergator
-nnoremap <C-B> :BuffergatorToggle<cr>
 "map Q to something useful
 noremap Q gq
 
