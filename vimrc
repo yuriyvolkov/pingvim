@@ -22,6 +22,7 @@ Plugin 'mileszs/ack.vim'
 Plugin 'majutsushi/tagbar'
 Plugin 'jeetsukumaran/vim-buffergator'
 Plugin 'jeetsukumaran/vim-buffersaurus'
+Plugin 'techlivezheng/vim-plugin-minibufexpl'
 Plugin 'vim-scripts/IndexedSearch'
 Plugin 'bling/vim-airline'
 
