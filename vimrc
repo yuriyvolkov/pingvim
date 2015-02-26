@@ -12,37 +12,16 @@ call vundle#begin('~/.vim/plugins')
 " let Vundle manage Vundle, required
 Plugin 'gmarik/Vundle.vim'
 
+" colors
 Plugin 'yuriyvolkov/vim-colorized'
-Plugin 'altercation/vim-colors-solarized'
-
-" navigation & search
-Plugin 'scrooloose/nerdtree'
-Plugin 'kien/ctrlp.vim'
-Plugin 'mileszs/ack.vim'
-Plugin 'majutsushi/tagbar'
-Plugin 'vim-scripts/IndexedSearch'
-Plugin 'bling/vim-airline'
-
-" syntax
-Plugin 'scrooloose/syntastic'
+Plugin 'chriskempson/base16-vim'
 
 " markup
 Plugin 'tpope/vim-haml'
 Plugin 'groenewege/vim-less'
 Plugin 'ap/vim-css-color'
-
-" git
-Plugin 'tpope/vim-git'
-Plugin 'tpope/vim-fugitive'
-Plugin 'int3/vim-extradite'
-Plugin 'airblade/vim-gitgutter'
-
-" speededit
-Plugin 'scrooloose/nerdcommenter'
-Plugin 'tpope/vim-unimpaired'
-Plugin 'tpope/vim-surround'
-Plugin 'tpope/vim-repeat'
-Plugin 'vim-scripts/camelcasemotion'
+Plugin 'tpope/vim-markdown'
+Plugin 'mustache/vim-mustache-handlebars'
 
 "ruby & rails stuff
 Plugin 'vim-ruby/vim-ruby'
@@ -50,8 +29,40 @@ Plugin 'tpope/vim-endwise'
 Plugin 'tpope/vim-rails'
 Plugin 'tpope/vim-cucumber'
 
+" Javascript & Coffee
+Plugin 'pangloss/vim-javascript'
+Plugin 'kchmck/vim-coffee-script'
+Plugin 'elzr/vim-json'
+
 " Go
 Plugin 'fatih/vim-go'
+
+" git
+Plugin 'tpope/vim-git'
+Plugin 'tpope/vim-fugitive'
+Plugin 'int3/vim-extradite'
+Plugin 'airblade/vim-gitgutter'
+
+" navigation & search
+Plugin 'scrooloose/nerdtree'
+Plugin 'kien/ctrlp.vim'
+Plugin 'mileszs/ack.vim'
+Plugin 'majutsushi/tagbar'
+Plugin 'jeetsukumaran/vim-buffergator'
+Plugin 'vim-scripts/IndexedSearch'
+Plugin 'bling/vim-airline'
+
+" syntax
+Plugin 'scrooloose/syntastic'
+
+" speededit
+Plugin 'scrooloose/nerdcommenter'
+Plugin 'tpope/vim-unimpaired'
+Plugin 'tpope/vim-surround'
+Plugin 'tpope/vim-repeat'
+Plugin 'vim-scripts/camelcasemotion'
+Plugin 'terryma/vim-multiple-cursors'
+
 
 call vundle#end()
 
@@ -110,26 +121,22 @@ set hidden
 set laststatus=2
 
 if has("gui_running")
-    "tell the term has 256 colors
-    set t_Co=256
-
+    set t_Co=256 "tell the term has 256 colors
     set guioptions-=T  "remove toolbar
-    set guifont=Ubuntu\ Mono:h12
 
-    if has("gui_gnome")
+    if has("gui_gnome") || has("gui_gtk")
         set term=gnome-256color
+        set guifont=Ubuntu\ Mono:h12
         colorscheme railscasts
-    else
-        colorscheme railscasts
-        set guitablabel=%M%t
-        set lines=39
-        set columns=115
     endif
     if has("gui_mac") || has("gui_macvim")
         set guifont=Menlo:h15
     endif
 else
-    colorscheme xterm16
+
+    let base16colorspace=256
+    set background=dark
+    colorscheme base16-default
 endif
 
 "mark syntax errors with :signs
@@ -142,6 +149,10 @@ let g:ackprg="ack-grep -H --nocolor --nogroup --column"
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#whitespace#enabled = 1
 let g:airline_powerline_fonts = 1
+
+let g:buffergator_viewport_split_policy="B"
+let g:buffergator_autoexpand_on_split=0
+let g:buffergator_split_size=10
 
 "load ftplugins and indent files
 filetype plugin on
@@ -197,3 +208,5 @@ endfunction
 vnoremap * :<C-u>call <SID>VSetSearch()<CR>//<CR>
 vnoremap # :<C-u>call <SID>VSetSearch()<CR>??<CR>
 
+"map to buffergator
+nnoremap <C-B> :BuffergatorToggle<cr>
