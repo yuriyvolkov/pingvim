@@ -44,13 +44,16 @@ Plugin 'int3/vim-extradite'
 Plugin 'airblade/vim-gitgutter'
 
 " navigation & search
-Plugin 'scrooloose/nerdtree'
-Plugin 'kien/ctrlp.vim'
 Plugin 'mileszs/ack.vim'
+Plugin 'rking/ag.vim'
 Plugin 'majutsushi/tagbar'
-Plugin 'jeetsukumaran/vim-buffergator'
 Plugin 'vim-scripts/IndexedSearch'
 Plugin 'bling/vim-airline'
+Plugin 'Shougo/vimproc.vim'
+Plugin 'Shougo/unite.vim'
+Plugin 'Shougo/neomru.vim'
+Plugin 'Shougo/unite-outline'
+Plugin 'Shougo/vimfiler.vim'
 
 " syntax
 Plugin 'scrooloose/syntastic'
@@ -145,17 +148,10 @@ endif
 "mark syntax errors with :signs
 let g:syntastic_enable_signs=1
 
-"ack setup for Debian/Ubuntu - comment this line out if u have ack binary in
-"your system
-let g:ackprg="ack-grep -H --nocolor --nogroup --column"
-
+"Airline
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#whitespace#enabled = 1
 let g:airline_powerline_fonts = 1
-
-let g:buffergator_viewport_split_policy="B"
-let g:buffergator_autoexpand_on_split=0
-let g:buffergator_split_size=10
 
 "load ftplugins and indent files
 filetype plugin on
@@ -188,9 +184,6 @@ function! s:HighlightLongLines(width)
     endif
 endfunction
 
-nmap <silent> <Leader>p :NERDTreeToggle<CR>
-nmap <F8> :TagbarToggle<CR>
-
 "make <c-l> clear the highlight as well as redraw
 nnoremap <C-L> :nohls<CR><C-L>
 inoremap <C-L> <C-O>:nohls<CR>
@@ -211,12 +204,8 @@ endfunction
 vnoremap * :<C-u>call <SID>VSetSearch()<CR>//<CR>
 vnoremap # :<C-u>call <SID>VSetSearch()<CR>??<CR>
 
-"map to buffergator
-nnoremap <C-B> :BuffergatorToggle<cr>
 
 "Neocomplete
-" Disable AutoComplPop.
-let g:acp_enableAtStartup = 0
 " Use neocomplete.
 let g:neocomplete#enable_at_startup = 1
 " Use smartcase.
@@ -246,9 +235,9 @@ inoremap <expr><C-l>     neocomplete#complete_common_string()
 " <CR>: close popup and save indent.
 inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
 function! s:my_cr_function()
-    return neocomplete#close_popup() . "\<CR>"
+    "return neocomplete#close_popup() . "\<CR>"
     " For no inserting <CR> key.
-    "return pumvisible() ? neocomplete#close_popup() : "\<CR>"
+    return pumvisible() ? neocomplete#close_popup() : "\<CR>"
 endfunction
 " <TAB>: completion.
 inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
@@ -258,26 +247,10 @@ inoremap <expr><BS> neocomplete#smart_close_popup()."\<C-h>"
 inoremap <expr><C-y>  neocomplete#close_popup()
 inoremap <expr><C-e>  neocomplete#cancel_popup()
 " Close popup by <Space>.
-inoremap <expr><Space> pumvisible() ? neocomplete#close_popup()  :"\<Space>"
-
-" For cursor moving in insert mode(Not recommended)
-"inoremap <expr><Left>  neocomplete#close_popup() . "\<Left>"
-"inoremap <expr><Right> neocomplete#close_popup() . "\<Right>"
-"inoremap <expr><Up>    neocomplete#close_popup() . "\<Up>"
-"inoremap <expr><Down>  neocomplete#close_popup() . "\<Down>"
-" Or set this.
-"let g:neocomplete#enable_cursor_hold_i = 1
-" Or set this.
-"let g:neocomplete#enable_insert_char_pre = 1
+"inoremap <expr><Space> pumvisible() ? neocomplete#close_popup()  :"\<Space>"
 
 " AutoComplPop like behavior.
 let g:neocomplete#enable_auto_select = 1
-
-" Shell like behavior(not recommended).
-"set completeopt+=longest
-"let g:neocomplete#enable_auto_select = 1
-"let g:neocomplete#disable_auto_complete = 1
-"inoremap <expr><TAB>  pumvisible() ? "\<Down>" : "\<C-x>\<C-u>"
 
 " Enable omni completion.
 autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
@@ -319,3 +292,51 @@ smap <expr><TAB> neosnippet#expandable_or_jumpable() ?
 if has('conceal')
     set conceallevel=2 concealcursor=i
 endif
+
+" Unite
+call unite#filters#matcher_default#use(['matcher_fuzzy'])
+nnoremap <C-p> :Unite file_rec/async<cr>
+nnoremap <C-B> :Unite -quick-match buffer<cr>
+
+" Unite yank history
+let g:unite_source_history_yank_enable = 1
+nnoremap <space>y :Unite history/yank<cr>
+
+" Unite Ctrl-\: Searcher
+if executable('ag')
+    let g:unite_source_grep_command = 'ag'
+    let g:unite_source_grep_default_opts = '--nogroup --nocolor --column'
+    let g:unite_source_grep_recursive_opt = ''
+    let g:agprg="ag --column"
+endif
+
+if executable('ack-grep')
+    let g:ackprg="ack-grep -H --nocolor --nogroup --column"
+elseif executable('ack')
+    let g:ackprg="ack -H --nocolor --nogroup --column"
+endif
+
+nmap <silent> <c-\> :Unite grep:.<cr>
+
+" VimFiler
+nnoremap <expr><F2> g:my_open_explorer_command()
+function! g:my_open_explorer_command()
+    return printf(":\<C-u>VimFilerBufferDir -buffer-name=%s -split -auto-cd -toggle -no-quit -winwidth=%s\<CR>",
+                \ g:my_vimfiler_explorer_name,
+                \ g:my_vimfiler_winwidth)
+endfunction
+let g:vimfiler_as_default_explorer = 1
+let g:vimfiler_tree_leaf_icon = ' '
+let g:vimfiler_tree_opened_icon = '▾'
+let g:vimfiler_tree_closed_icon = '▸'
+let g:vimfiler_marked_file_icon = '✓'
+let g:vimfiler_file_icon = '-'
+let g:vimfiler_marked_file_icon = '*'
+let g:vimfiler_readonly_file_icon = '!'
+let g:my_vimfiler_explorer_name = 'explorer'
+let g:vimfiler_safe_mode_by_default = 0
+let g:vimfiler_directory_display_top = 1
+let g:my_vimfiler_winwidth = 80
+
+" Tagbar
+nmap <F8> :TagbarToggle<CR>
