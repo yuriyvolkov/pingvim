@@ -92,9 +92,10 @@ set cursorline
 set number
 
 "indent settings
-set shiftwidth=4
-set softtabstop=4
+set shiftwidth=2
+set softtabstop=2
 set expandtab
+set smarttab
 set autoindent
 
 "folding settings
@@ -125,6 +126,10 @@ set ttymouse=xterm2
 set hidden
 
 set laststatus=2
+
+set nobackup
+set nowritebackup
+set noswapfile
 
 if has("gui_running")
     set t_Co=256 "tell the term has 256 colors
@@ -263,16 +268,13 @@ autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
 if !exists('g:neocomplete#sources#omni#input_patterns')
     let g:neocomplete#sources#omni#input_patterns = {}
 endif
-"let g:neocomplete#sources#omni#input_patterns.php = '[^.
-"\t]->\h\w*\|\h\w*::'
-"let g:neocomplete#sources#omni#input_patterns.c = '[^.[:digit:]
-"*\t]\%(\.\|->\)'
-"let g:neocomplete#sources#omni#input_patterns.cpp = '[^.[:digit:]
-"*\t]\%(\.\|->\)\|\h\w*::'
+let g:neocomplete#sources#omni#input_patterns.php = '[^.\t]->\h\w*\|\h\w*::'
+let g:neocomplete#sources#omni#input_patterns.c = '[^.[:digit:]*\t]\%(\.\|->\)'
+let g:neocomplete#sources#omni#input_patterns.cpp = '[^.[:digit:]*\t]\%(\.\|->\)\|\h\w*::'
 
 " For perlomni.vim setting.
 " https://github.com/c9s/perlomni.vim
-let g:neocomplete#sources#omni#input_patterns.perl =  '\h\w*->\h\w*\|\h\w*::'
+" let g:neocomplete#sources#omni#input_patterns.perl =  '\h\w*->\h\w*\|\h\w*::'
 
 " Neosnippet
 " Plugin key-mappings.
@@ -321,7 +323,7 @@ nmap <silent> <c-\> :Unite grep:.<cr>
 " VimFiler
 nnoremap <expr><F2> g:my_open_explorer_command()
 function! g:my_open_explorer_command()
-    return printf(":\<C-u>VimFilerBufferDir -buffer-name=%s -split -auto-cd -toggle -no-quit -winwidth=%s\<CR>",
+    return printf(":\<C-u>VimFilerBufferDir -buffer-name=%s -split -toggle -no-quit -winwidth=%s\<CR>",
                 \ g:my_vimfiler_explorer_name,
                 \ g:my_vimfiler_winwidth)
 endfunction
