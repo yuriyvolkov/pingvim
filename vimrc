@@ -13,7 +13,6 @@ call vundle#begin('~/.vim/plugins')
 Plugin 'gmarik/Vundle.vim'
 
 " colors
-Plugin 'yuriyvolkov/vim-colorized'
 Plugin 'chriskempson/base16-vim'
 
 " markup
