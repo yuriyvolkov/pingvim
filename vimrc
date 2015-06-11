@@ -38,6 +38,9 @@ Plugin 'fatih/vim-go'
 
 " Clojure
 Plugin 'guns/vim-clojure-static'
+Plugin 'tpope/vim-salve'
+Plugin 'tpope/vim-projectionist'
+Plugin 'tpope/vim-dispatch'
 Plugin 'tpope/vim-fireplace'
 Plugin 'guns/vim-clojure-highlight'
 Plugin 'yuriyvolkov/vim-niji'
