@@ -159,6 +159,8 @@ if has("gui_running")
     colorscheme base16-default
 endif
 
+let g:go_fmt_command = "goimports"
+"
 "Syntastic syntax checker
 let g:syntastic_enable_signs=1
 
@@ -299,8 +301,8 @@ nnoremap <Leader>o :Unite file_rec/async<CR>
 nnoremap <Leader>b :Unite -quick-match buffer<CR>
 
 " FILE EXPLORER
-nnoremap <expr><Leader><Leader> g:my_open_explorer_command()
-function! g:my_open_explorer_command()
+nnoremap <expr><C-o> g:My_open_explorer_command()
+function! g:My_open_explorer_command()
     return printf(":\<C-u>VimFilerBufferDir -buffer-name=%s -split -toggle -no-quit -winwidth=%s\<CR>",
                 \ g:my_vimfiler_explorer_name,
                 \ g:my_vimfiler_winwidth)
@@ -346,3 +348,6 @@ nnoremap <Leader>y :Unite history/yank<cr>
 " T-comment mappings
 vmap <Leader>c gc
 nmap <Leader>c gcc
+
+" Fireplace mappings
+nmap <Leader>e :%Eval<CR>
