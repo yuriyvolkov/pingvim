@@ -2,9 +2,9 @@ Usage
 =====
 
 * clone this repo into your home directory as `.vim`
-
-Put this in your `.vimrc` along with your personal hacks:
-    source ~/.vim/vimrc      "linux
+* put this in your `~/.vimrc` along with your personal hacks `source ~/.vim/vimrc`
+* `git clone git@github.com:VundleVim/Vundle.vim.git ~/.vim/plugins/`
+* open vim and run `:VundleInstall`
 
 Credits
 =======
