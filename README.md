@@ -1,4 +1,4 @@
-Usage
+Installation
 =====
 
 * clone this repo into your home directory as `.vim`
