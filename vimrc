@@ -33,6 +33,9 @@ Plugin 'pangloss/vim-javascript'
 Plugin 'kchmck/vim-coffee-script'
 Plugin 'elzr/vim-json'
 
+" C++
+Plugin 'octol/vim-cpp-enhanced-highlight'
+
 " Go
 Plugin 'fatih/vim-go'
 
@@ -156,9 +159,9 @@ if has("gui_running")
     endif
   else
 
-    let base16colorspace=256
-    set background=dark
-    colorscheme base16-default-dark
+    " let base16colorspace=256
+    " set background=dark
+    " colorscheme base16-default-dark
 endif
 
 let g:go_fmt_command = "goimports"
