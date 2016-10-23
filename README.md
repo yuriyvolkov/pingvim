@@ -3,7 +3,7 @@ Installation
 
 * clone this repo into your home directory as `.vim`
 * put this in your `~/.vimrc` along with your personal hacks `source ~/.vim/vimrc`
-* `git clone git@github.com:VundleVim/Vundle.vim.git ~/.vim/plugins/Vundle.vim
+* `git clone git@github.com:VundleVim/Vundle.vim.git ~/.vim/plugins/Vundle.vim`
 * open vim and run `:VundleInstall`
 
 Credits
