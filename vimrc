@@ -35,6 +35,7 @@ Plugin 'elzr/vim-json'
 
 " C++
 Plugin 'octol/vim-cpp-enhanced-highlight'
+Plugin 'majutsushi/tagbar'
 
 " Go
 Plugin 'fatih/vim-go'
@@ -367,3 +368,7 @@ nmap <Leader>c gcc
 
 " Fireplace mappings
 nmap <Leader>e :%Eval<CR>
+
+" Tagbar
+nmap <F8> :TagbarToggle<CR>
+
