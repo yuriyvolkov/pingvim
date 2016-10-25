@@ -386,7 +386,8 @@ let g:clang_format#style_options = {
             \ "BinPackParameters": "false",
             \ "BinPackArguments": "false",
             \ "IndentWidth": 4,
-            \ "ConstructorInitializerIndentWidth": 4}
+            \ "ConstructorInitializerIndentWidth": 4,
+            \ "IndentCaseLabels": "false"}
 
 " map to <Leader>cf in C++ code
 autocmd FileType c,cpp,objc nnoremap <buffer><Leader>f :<C-u>ClangFormat<CR>
