@@ -35,7 +35,8 @@ Plugin 'elzr/vim-json'
 
 " C++
 Plugin 'octol/vim-cpp-enhanced-highlight'
-Plugin 'majutsushi/tagbar'
+Plugin 'kana/vim-operator-user' "required for vim-clang-format
+Plugin 'rhysd/vim-clang-format'
 
 " Go
 Plugin 'fatih/vim-go'
@@ -61,6 +62,7 @@ Plugin 'vim-scripts/IndexedSearch'
 Plugin 'bling/vim-airline'
 Plugin 'Konfekt/FastFold'
 Plugin 'Konfekt/FoldText'
+Plugin 'majutsushi/tagbar'
 
 " Unite & friends
 Plugin 'Shougo/vimproc.vim'
@@ -345,7 +347,7 @@ if executable('ag')
     let g:unite_source_grep_recursive_opt = ''
     let g:ag_prg="ag --column"
 endif
-nnoremap <Leader>f :Ag 
+nnoremap <Leader>g :Ag 
 
 " save files with Leader+w
 nnoremap <Leader>w :w<CR>
@@ -372,3 +374,20 @@ nmap <Leader>e :%Eval<CR>
 " Tagbar
 nmap <F8> :TagbarToggle<CR>
 
+" vim-clang-format
+let g:clang_format#code_style='mozilla' "'google', 'llvm', 'chromium', 'mozilla'
+let g:clang_format#style_options = {
+            \ "AccessModifierOffset" : -4,
+            \ "AllowShortIfStatementsOnASingleLine" : "false",
+            \ "AlwaysBreakTemplateDeclarations" : "true",
+            \ "Standard" : "C++11",
+            \ "BreakBeforeBraces" : "Allman",
+            \ "ColumnLimit": 120,
+            \ "BinPackParameters": "false",
+            \ "BinPackArguments": "false",
+            \ "IndentWidth": 4,
+            \ "ConstructorInitializerIndentWidth": 4}
+
+" map to <Leader>cf in C++ code
+autocmd FileType c,cpp,objc nnoremap <buffer><Leader>f :<C-u>ClangFormat<CR>
+autocmd FileType c,cpp,objc vnoremap <buffer><Leader>f :ClangFormat<CR>
