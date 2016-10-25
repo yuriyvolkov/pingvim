@@ -388,21 +388,6 @@ map <Leader>s :AS<CR>
 map <Leader>v :AV<CR>
 map <Leader>t :AT<CR>
 
-" vim-clang-format
-let g:clang_format#code_style='mozilla' "'google', 'llvm', 'chromium', 'mozilla'
-let g:clang_format#style_options = {
-            \ "AccessModifierOffset" : -4,
-            \ "AllowShortIfStatementsOnASingleLine" : "false",
-            \ "AlwaysBreakTemplateDeclarations" : "true",
-            \ "Standard" : "C++11",
-            \ "BreakBeforeBraces" : "Allman",
-            \ "ColumnLimit": 120,
-            \ "BinPackParameters": "false",
-            \ "BinPackArguments": "false",
-            \ "IndentWidth": 4,
-            \ "ConstructorInitializerIndentWidth": 4,
-            \ "IndentCaseLabels": "false"}
-
 " map to <Leader>cf in C++ code
 autocmd FileType c,cpp,objc nnoremap <buffer><Leader>f :<C-u>ClangFormat<CR>
 autocmd FileType c,cpp,objc vnoremap <buffer><Leader>f :ClangFormat<CR>
@@ -415,4 +400,21 @@ let g:clang_c_completeopt = 'menuone'
 let g:clang_cpp_completeopt = 'menuone'
 let g:clang_c_options = '-std=gnu11'
 let g:clang_cpp_options = '-std=c++11 -stdlib=libc++'
+let g:clang_enable_format_command = 0
+
+" vim-clang-format
+let g:clang_format#code_style='mozilla' "'google', 'llvm', 'chromium', 'mozilla'
+
+let g:clang_format#style_options = {
+            \ "AccessModifierOffset" : -4,
+            \ "AllowShortIfStatementsOnASingleLine" : "false",
+            \ "AlwaysBreakTemplateDeclarations" : "true",
+            \ "Standard" : "C++11",
+            \ "BreakBeforeBraces" : "Allman",
+            \ "ColumnLimit": 120,
+            \ "BinPackParameters": "false",
+            \ "BinPackArguments": "false",
+            \ "IndentWidth": 4,
+            \ "IndentCaseLabels": "false",
+            \ "ConstructorInitializerIndentWidth": 4}
 
