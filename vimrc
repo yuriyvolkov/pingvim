@@ -182,6 +182,7 @@ set statusline+=%*
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 let g:syntastic_ruby_checkers = ['mri', 'rubocop']
+let g:syntastic_cpp_checkers = ['clang_tidy']
 let g:syntastic_aggregate_errors = 1
 
 
