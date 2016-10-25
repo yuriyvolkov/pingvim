@@ -38,6 +38,7 @@ Plugin 'octol/vim-cpp-enhanced-highlight'
 Plugin 'kana/vim-operator-user' "required for vim-clang-format
 Plugin 'rhysd/vim-clang-format'
 Plugin 'justmao945/vim-clang'
+Plugin 'vim-scripts/a.vim'
 
 " Go
 Plugin 'fatih/vim-go'
@@ -380,6 +381,12 @@ nmap <Leader>e :%Eval<CR>
 
 " Tagbar
 nmap <F8> :TagbarToggle<CR>
+
+" a.vim mappings
+map <Leader>h :A<CR>
+map <Leader>s :AS<CR>
+map <Leader>v :AV<CR>
+map <Leader>t :AT<CR>
 
 " vim-clang-format
 let g:clang_format#code_style='mozilla' "'google', 'llvm', 'chromium', 'mozilla'
