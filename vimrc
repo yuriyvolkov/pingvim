@@ -162,11 +162,11 @@ if has("gui_running")
     if has("gui_mac") || has("gui_macvim")
         set guifont=Menlo:h15
     endif
-  else
+else
 
     " let base16colorspace=256
-    " set background=dark
-    " colorscheme base16-default-dark
+    set background=dark
+    colorscheme base16-default-dark
 endif
 
 let g:go_fmt_command = "goimports"
@@ -293,14 +293,8 @@ if !exists('g:neocomplete#sources#omni#input_patterns')
     let g:neocomplete#sources#omni#input_patterns = {}
 endif
 let g:neocomplete#sources#omni#input_patterns.php = '[^.\t]->\h\w*\|\h\w*::'
-let g:neocomplete#sources#omni#input_patterns.c = '[^.[:digit:]*\t]\%(\.\|->\)'
-let g:neocomplete#sources#omni#input_patterns.cpp = '[^.[:digit:]*\t]\%(\.\|->\)\|\h\w*::'
-if !exists('g:neocomplete#force_omni_input_patterns')
-  let g:neocomplete#force_omni_input_patterns = {}
-endif
-
-let g:neocomplete#force_omni_input_patterns.c = '[^.[:digit:] *\t]\%(\.\|->\)\w*'
-let g:neocomplete#force_omni_input_patterns.cpp = '[^.[:digit:] *\t]\%(\.\|->\)\w*\|\h\w*::\w*'
+let g:neocomplete#sources#omni#input_patterns.c = '[^.[:digit:] *\t]\%(\.\|->\)'
+let g:neocomplete#sources#omni#input_patterns.cpp = '[^.[:digit:] *\t]\%(\.\|->\)\|\h\w*::'
 
 " /NEOCOMPLETE
 
@@ -420,3 +414,4 @@ let g:clang_format#style_options = {
             \ "IndentCaseLabels": "false",
             \ "ConstructorInitializerIndentWidth": 4}
 
+let g:clang_format#detect_style_file = 1
