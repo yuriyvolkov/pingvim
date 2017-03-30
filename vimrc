@@ -399,19 +399,4 @@ let g:clang_cpp_options = '-std=c++11 -stdlib=libc++'
 let g:clang_enable_format_command = 0
 
 " vim-clang-format
-let g:clang_format#code_style='mozilla' "'google', 'llvm', 'chromium', 'mozilla'
-
-let g:clang_format#style_options = {
-            \ "AccessModifierOffset" : -4,
-            \ "AllowShortIfStatementsOnASingleLine" : "false",
-            \ "AlwaysBreakTemplateDeclarations" : "true",
-            \ "Standard" : "C++11",
-            \ "BreakBeforeBraces" : "Allman",
-            \ "ColumnLimit": 120,
-            \ "BinPackParameters": "false",
-            \ "BinPackArguments": "false",
-            \ "IndentWidth": 4,
-            \ "IndentCaseLabels": "false",
-            \ "ConstructorInitializerIndentWidth": 4}
-
 let g:clang_format#detect_style_file = 1
