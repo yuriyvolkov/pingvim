@@ -107,6 +107,7 @@ set linebreak   "wrap lines at convenient points
 
 "cursor & line numbers settings
 set cursorline
+set colorcolumn=120
 set number
 
 "indent settings
@@ -164,7 +165,13 @@ if has("gui_running")
     endif
 else
 
-    " let base16colorspace=256
+    if has('unix')
+      if has('mac') "osx
+        " do nothing
+      else " linux, bsd, etc
+        let base16colorspace=256
+      endif
+    endif
     set background=dark
     colorscheme base16-default-dark
 endif
@@ -177,14 +184,15 @@ set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
 
-" let g:syntastic_always_populate_loc_list = 0
-" let g:syntastic_auto_loc_list = 1
+let g:syntastic_always_populate_loc_list = 0
+let g:syntastic_auto_loc_list = 2
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 let g:syntastic_ruby_checkers = ['mri', 'rubocop']
 let g:syntastic_cpp_checkers = ['clang_tidy']
 let g:syntastic_aggregate_errors = 1
-let g:syntastic_c_clang_tidy_post_args = "-p  ./build/"
+let g:syntastic_c_clang_tidy_post_args = "-checks='-*,clang-analyzer-*' -p=./build/"
+let g:syntastic_cpp_clang_tidy_post_args = "-checks='-*,clang-analyzer-*,misc-*,readability-*,performance-*,modernize-*,boost-*,cert-*-cpp,llvm-*,cppcoreguidelines-*' -p=./build/"
 
 
 "Airline
@@ -341,7 +349,7 @@ let g:vimfiler_readonly_file_icon = '!'
 let g:my_vimfiler_explorer_name = 'explorer'
 let g:vimfiler_safe_mode_by_default = 0
 let g:vimfiler_directory_display_top = 1
-let g:my_vimfiler_winwidth = 80
+let g:my_vimfiler_winwidth = 60
 " /FILEXPLORER
 
 " Ag/grep
@@ -377,6 +385,7 @@ nmap <Leader>e :%Eval<CR>
 
 " Tagbar
 nmap <F8> :TagbarToggle<CR>
+let g:tagbar_width = 60
 
 " a.vim mappings
 map <Leader>h :A<CR>
@@ -396,6 +405,7 @@ let g:clang_c_completeopt = 'menuone'
 let g:clang_cpp_completeopt = 'menuone'
 let g:clang_c_options = '-std=gnu11'
 let g:clang_cpp_options = '-std=c++11 -stdlib=libc++'
+" clang-format in vim-clang plugin
 let g:clang_enable_format_command = 0
 
 " vim-clang-format
