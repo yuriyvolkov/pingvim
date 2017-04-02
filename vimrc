@@ -184,8 +184,8 @@ set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
 
-let g:syntastic_always_populate_loc_list = 0
-let g:syntastic_auto_loc_list = 2
+" let g:syntastic_always_populate_loc_list = 0
+" let g:syntastic_auto_loc_list = 2
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 let g:syntastic_ruby_checkers = ['mri', 'rubocop']
@@ -193,6 +193,9 @@ let g:syntastic_cpp_checkers = ['clang_tidy']
 let g:syntastic_aggregate_errors = 1
 let g:syntastic_c_clang_tidy_post_args = "-checks='-*,clang-analyzer-*' -p=./build/"
 let g:syntastic_cpp_clang_tidy_post_args = "-checks='-*,clang-analyzer-*,misc-*,readability-*,performance-*,modernize-*,boost-*,cert-*-cpp,llvm-*,cppcoreguidelines-*' -p=./build/"
+let g:syntastic_enable_balloons = 1
+let g:syntastic_error_symbol = "\u1f571"
+let g:syntastic_warning_symbol = "\u26A0"
 
 
 "Airline
