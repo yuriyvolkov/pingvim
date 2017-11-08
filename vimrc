@@ -40,6 +40,9 @@ Plugin 'rhysd/vim-clang-format'
 Plugin 'justmao945/vim-clang'
 Plugin 'vim-scripts/a.vim'
 
+" Vala
+Plugin 'arrufat/vala.vim'
+
 " Go
 Plugin 'fatih/vim-go'
 
