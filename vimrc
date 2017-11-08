@@ -111,8 +111,8 @@ set colorcolumn=120
 set number
 
 "indent settings
-set shiftwidth=2
-set softtabstop=2
+set shiftwidth=4
+set softtabstop=4
 set expandtab
 set smarttab
 set autoindent
@@ -159,18 +159,19 @@ if has("gui_running")
         set term=gnome-256color
         set guifont=Ubuntu\ Mono:h12
         colorscheme railscasts
-      endif
+    endif
     if has("gui_mac") || has("gui_macvim")
         set guifont=Menlo:h15
     endif
 else
 
     if has('unix')
-      if has('mac') "osx
-        " do nothing
-      else " linux, bsd, etc
-        let base16colorspace=256
-      endif
+        if has('mac') "osx
+            let base16colorspace=256
+            " do nothing
+        else " linux, bsd, etc
+
+        endif
     endif
     set background=dark
     colorscheme base16-default-dark
@@ -191,8 +192,8 @@ let g:syntastic_check_on_wq = 0
 let g:syntastic_ruby_checkers = ['mri', 'rubocop']
 let g:syntastic_cpp_checkers = ['clang_tidy']
 let g:syntastic_aggregate_errors = 1
-let g:syntastic_c_clang_tidy_post_args = "-checks='-*,clang-analyzer-*' -p=./build/"
-let g:syntastic_cpp_clang_tidy_post_args = "-checks='-*,clang-analyzer-*,misc-*,readability-*,performance-*,modernize-*,boost-*,cert-*-cpp,llvm-*,cppcoreguidelines-*' -p=./build/"
+let g:syntastic_c_clang_tidy_post_args = "-p=./build/"
+let g:syntastic_cpp_clang_tidy_post_args = "-p=./build/"
 let g:syntastic_enable_balloons = 1
 let g:syntastic_error_symbol = "\u1f571"
 let g:syntastic_warning_symbol = "\u26A0"
