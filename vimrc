@@ -198,8 +198,8 @@ let g:syntastic_aggregate_errors = 1
 let g:syntastic_c_clang_tidy_post_args = "-p=./build/"
 let g:syntastic_cpp_clang_tidy_post_args = "-p=./build/"
 let g:syntastic_enable_balloons = 1
-let g:syntastic_error_symbol = "\u1f571"
-let g:syntastic_warning_symbol = "\u26A0"
+let g:syntastic_error_symbol = "\u27A1"
+let g:syntastic_warning_symbol = "\u27A1"
 
 
 "Airline
