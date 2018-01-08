@@ -168,14 +168,7 @@ if has("gui_running")
     endif
 else
 
-    if has('unix')
-        if has('mac') "osx
-            let base16colorspace=256
-            " do nothing
-        else " linux, bsd, etc
-
-        endif
-    endif
+    let base16colorspace=256
     set background=dark
     colorscheme base16-default-dark
 endif
