@@ -29,9 +29,9 @@ Plugin 'tpope/vim-rails'
 Plugin 'tpope/vim-cucumber'
 
 " Javascript & Coffee
-Plugin 'pangloss/vim-javascript'
-Plugin 'kchmck/vim-coffee-script'
-Plugin 'elzr/vim-json'
+" Plugin 'pangloss/vim-javascript'
+" Plugin 'kchmck/vim-coffee-script'
+" Plugin 'elzr/vim-json'
 
 " C++
 Plugin 'octol/vim-cpp-enhanced-highlight'
@@ -41,19 +41,20 @@ Plugin 'justmao945/vim-clang'
 Plugin 'vim-scripts/a.vim'
 
 " Vala
-Plugin 'arrufat/vala.vim'
+" Plugin 'arrufat/vala.vim'
 
 " Go
 Plugin 'fatih/vim-go'
+Plugin 'buoto/gotests-vim'
 
 " Clojure
-Plugin 'guns/vim-clojure-static'
-Plugin 'tpope/vim-salve'
-Plugin 'tpope/vim-projectionist'
-Plugin 'tpope/vim-dispatch'
-Plugin 'tpope/vim-fireplace'
-Plugin 'guns/vim-clojure-highlight'
-Plugin 'yuriyvolkov/vim-niji'
+" Plugin 'guns/vim-clojure-static'
+" Plugin 'tpope/vim-salve'
+" Plugin 'tpope/vim-projectionist'
+" Plugin 'tpope/vim-dispatch'
+" Plugin 'tpope/vim-fireplace'
+" Plugin 'guns/vim-clojure-highlight'
+" Plugin 'yuriyvolkov/vim-niji'
 
 " git
 Plugin 'tpope/vim-git'
@@ -87,8 +88,8 @@ Plugin 'tpope/vim-repeat'
 Plugin 'vim-scripts/camelcasemotion'
 Plugin 'terryma/vim-multiple-cursors'
 Plugin 'Shougo/neocomplete.vim'
-Plugin 'Shougo/neosnippet.vim'
-Plugin 'Shougo/neosnippet-snippets'
+" Plugin 'Shougo/neosnippet.vim'
+" Plugin 'Shougo/neosnippet-snippets'
 
 
 call vundle#end()
@@ -168,6 +169,7 @@ if has("gui_running")
     endif
 else
 
+    set t_Co=256 "tell the term has 256 colors
     let base16colorspace=256
     set background=dark
     colorscheme base16-default-dark
@@ -191,8 +193,8 @@ let g:syntastic_aggregate_errors = 1
 let g:syntastic_c_clang_tidy_post_args = "-p=./build/"
 let g:syntastic_cpp_clang_tidy_post_args = "-p=./build/"
 let g:syntastic_enable_balloons = 1
-let g:syntastic_error_symbol = "\u27A1"
-let g:syntastic_warning_symbol = "\u27A1"
+let g:syntastic_error_symbol = "E"
+let g:syntastic_warning_symbol = "W"
 
 
 "Airline
