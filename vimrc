@@ -12,26 +12,11 @@ call vundle#begin('~/.vim/plugins')
 " let Vundle manage Vundle, required
 Plugin 'gmarik/Vundle.vim'
 
-" colors
-Plugin 'chriskempson/base16-vim'
-
-" markup
-Plugin 'tpope/vim-haml'
-Plugin 'groenewege/vim-less'
-Plugin 'ap/vim-css-color'
-Plugin 'tpope/vim-markdown'
-Plugin 'mustache/vim-mustache-handlebars'
-
-"ruby & rails stuff
 Plugin 'vim-ruby/vim-ruby'
 Plugin 'tpope/vim-endwise'
-Plugin 'tpope/vim-rails'
-Plugin 'tpope/vim-cucumber'
 
 " Javascript & Coffee
-" Plugin 'pangloss/vim-javascript'
-" Plugin 'kchmck/vim-coffee-script'
-" Plugin 'elzr/vim-json'
+Plugin 'elzr/vim-json'
 
 " C++
 Plugin 'octol/vim-cpp-enhanced-highlight'
@@ -40,21 +25,9 @@ Plugin 'rhysd/vim-clang-format'
 Plugin 'justmao945/vim-clang'
 Plugin 'vim-scripts/a.vim'
 
-" Vala
-" Plugin 'arrufat/vala.vim'
-
 " Go
 Plugin 'fatih/vim-go'
 Plugin 'buoto/gotests-vim'
-
-" Clojure
-" Plugin 'guns/vim-clojure-static'
-" Plugin 'tpope/vim-salve'
-" Plugin 'tpope/vim-projectionist'
-" Plugin 'tpope/vim-dispatch'
-" Plugin 'tpope/vim-fireplace'
-" Plugin 'guns/vim-clojure-highlight'
-" Plugin 'yuriyvolkov/vim-niji'
 
 " git
 Plugin 'tpope/vim-git'
@@ -87,9 +60,6 @@ Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-repeat'
 Plugin 'vim-scripts/camelcasemotion'
 Plugin 'terryma/vim-multiple-cursors'
-Plugin 'Shougo/neocomplete.vim'
-" Plugin 'Shougo/neosnippet.vim'
-" Plugin 'Shougo/neosnippet-snippets'
 
 
 call vundle#end()
@@ -155,25 +125,9 @@ set nowritebackup
 set noswapfile
 
 " Colorscheme
-if has("gui_running")
-    set t_Co=256 "tell the term has 256 colors
-    set guioptions-=T  "remove toolbar
-
-    if has("gui_gnome") || has("gui_gtk")
-        set term=gnome-256color
-        set guifont=Ubuntu\ Mono:h12
-        colorscheme railscasts
-    endif
-    if has("gui_mac") || has("gui_macvim")
-        set guifont=Menlo:h15
-    endif
-else
-
-    set t_Co=256 "tell the term has 256 colors
-    let base16colorspace=256
-    set background=dark
-    colorscheme base16-default-dark
-endif
+set t_Co=256 "tell the term has 256 colors
+set background=dark
+colorscheme  slate
 
 let g:go_fmt_command = "goimports"
 "
@@ -245,88 +199,6 @@ vnoremap # :<C-u>call <SID>VSetSearch()<CR>??<CR>
 
 "make <c-l> clear the highlight as well as redraw
 nnoremap <Leader>h :nohls<CR>
-
-"NEOCOMPLETE
-" Use neocomplete.
-let g:neocomplete#enable_at_startup = 1
-" Use smartcase.
-let g:neocomplete#enable_smart_case = 1
-" Set minimum syntax keyword length.
-let g:neocomplete#sources#syntax#min_keyword_length = 3
-let g:neocomplete#lock_buffer_name_pattern = '\*ku\*'
-
-" Define dictionary.
-let g:neocomplete#sources#dictionary#dictionaries = {
-            \ 'default' : '',
-            \ 'vimshell' : $HOME.'/.vimshell_hist',
-            \ 'scheme' : $HOME.'/.gosh_completions'
-            \ }
-
-" Define keyword.
-if !exists('g:neocomplete#keyword_patterns')
-    let g:neocomplete#keyword_patterns = {}
-endif
-let g:neocomplete#keyword_patterns['default'] = '\h\w*'
-
-" Plugin key-mappings.
-inoremap <expr><C-g>     neocomplete#undo_completion()
-inoremap <expr><C-l>     neocomplete#complete_common_string()
-
-" Recommended key-mappings.
-" <CR>: close popup and save indent.
-inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
-
-" For no inserting <CR> key.
-function! s:my_cr_function()
-    return pumvisible() ? neocomplete#close_popup() : "\<CR>"
-endfunction
-" <TAB>: completion.
-inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
-" <C-h>, <BS>: close popup and delete backword char.
-inoremap <expr><C-h> neocomplete#smart_close_popup()."\<C-h>"
-inoremap <expr><BS> neocomplete#smart_close_popup()."\<C-h>"
-inoremap <expr><C-y>  neocomplete#close_popup()
-inoremap <expr><C-e>  neocomplete#cancel_popup()
-
-" AutoComplPop like behavior.
-let g:neocomplete#enable_auto_select = 1
-
-" Enable omni completion.
-autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
-autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
-autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
-autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
-autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
-
-" Enable heavy omni completion.
-if !exists('g:neocomplete#sources#omni#input_patterns')
-    let g:neocomplete#sources#omni#input_patterns = {}
-endif
-let g:neocomplete#sources#omni#input_patterns.php = '[^.\t]->\h\w*\|\h\w*::'
-let g:neocomplete#sources#omni#input_patterns.c = '[^.[:digit:] *\t]\%(\.\|->\)'
-let g:neocomplete#sources#omni#input_patterns.cpp = '[^.[:digit:] *\t]\%(\.\|->\)\|\h\w*::'
-
-" /NEOCOMPLETE
-
-" NEOSNIPPET
-" Plugin key-mappings.
-imap <C-k>     <Plug>(neosnippet_expand_or_jump)
-smap <C-k>     <Plug>(neosnippet_expand_or_jump)
-xmap <C-k>     <Plug>(neosnippet_expand_target)
-
-" SuperTab like snippets behavior.
-imap <expr><TAB> neosnippet#expandable_or_jumpable() ?
-            \ "\<Plug>(neosnippet_expand_or_jump)"
-            \: pumvisible() ? "\<C-n>" : "\<TAB>"
-smap <expr><TAB> neosnippet#expandable_or_jumpable() ?
-            \ "\<Plug>(neosnippet_expand_or_jump)"
-            \: "\<TAB>"
-
-" For snippet_complete marker.
-if has('conceal')
-    set conceallevel=2 concealcursor=i
-endif
-" /NEOSNIPPET
 
 " Unite
 call unite#filters#matcher_default#use(['matcher_fuzzy'])
