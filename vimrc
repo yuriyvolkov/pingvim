@@ -12,35 +12,14 @@ call vundle#begin('~/.vim/plugins')
 " let Vundle manage Vundle, required
 Plugin 'gmarik/Vundle.vim'
 
-Plugin 'vim-ruby/vim-ruby'
-Plugin 'tpope/vim-endwise'
-
-" Javascript & Coffee
-Plugin 'elzr/vim-json'
-
-" C++
-Plugin 'octol/vim-cpp-enhanced-highlight'
-Plugin 'kana/vim-operator-user' "required for vim-clang-format
-Plugin 'rhysd/vim-clang-format'
-Plugin 'justmao945/vim-clang'
-Plugin 'vim-scripts/a.vim'
-
 " Go
 Plugin 'fatih/vim-go'
 Plugin 'buoto/gotests-vim'
-
-" git
-Plugin 'tpope/vim-git'
-Plugin 'tpope/vim-fugitive'
-Plugin 'int3/vim-extradite'
-Plugin 'airblade/vim-gitgutter'
 
 " navigation & search
 Plugin 'rking/ag.vim'
 Plugin 'vim-scripts/IndexedSearch'
 Plugin 'bling/vim-airline'
-Plugin 'Konfekt/FastFold'
-Plugin 'Konfekt/FoldText'
 Plugin 'majutsushi/tagbar'
 
 " Unite & friends
@@ -49,18 +28,6 @@ Plugin 'Shougo/unite.vim'
 Plugin 'Shougo/neomru.vim'
 Plugin 'Shougo/unite-outline'
 Plugin 'Shougo/vimfiler.vim'
-
-" syntax
-Plugin 'scrooloose/syntastic'
-
-" speededit
-Plugin 'tomtom/tcomment_vim'
-Plugin 'tpope/vim-unimpaired'
-Plugin 'tpope/vim-surround'
-Plugin 'tpope/vim-repeat'
-Plugin 'vim-scripts/camelcasemotion'
-Plugin 'terryma/vim-multiple-cursors'
-
 
 call vundle#end()
 
@@ -130,31 +97,11 @@ set background=dark
 colorscheme  slate
 
 let g:go_fmt_command = "goimports"
-"
-"Syntastic syntax checker
-let g:syntastic_enable_signs=1
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
-
-" let g:syntastic_always_populate_loc_list = 0
-" let g:syntastic_auto_loc_list = 2
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
-let g:syntastic_ruby_checkers = ['mri', 'rubocop']
-let g:syntastic_cpp_checkers = ['clang_tidy']
-let g:syntastic_aggregate_errors = 1
-let g:syntastic_c_clang_tidy_post_args = "-p=./build/"
-let g:syntastic_cpp_clang_tidy_post_args = "-p=./build/"
-let g:syntastic_enable_balloons = 1
-let g:syntastic_error_symbol = "E"
-let g:syntastic_warning_symbol = "W"
-
 
 "Airline
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#whitespace#enabled = 1
-let g:airline_powerline_fonts = 1
+let g:airline_powerline_fonts = 0
 
 "load ftplugins and indent files
 filetype plugin indent on
@@ -250,10 +197,6 @@ vmap <Leader>P "+P
 let g:unite_source_history_yank_enable = 1
 nnoremap <Leader>y :Unite history/yank<cr>
 
-" T-comment mappings
-vmap <Leader>c gc
-nmap <Leader>c gcc
-
 " Fireplace mappings
 nmap <Leader>e :%Eval<CR>
 
@@ -261,26 +204,3 @@ nmap <Leader>e :%Eval<CR>
 nmap <F8> :TagbarToggle<CR>
 let g:tagbar_width = 60
 
-" a.vim mappings
-map <Leader>h :A<CR>
-map <Leader>s :AS<CR>
-map <Leader>v :AV<CR>
-map <Leader>t :AT<CR>
-
-" map to <Leader>cf in C++ code
-autocmd FileType c,cpp,objc nnoremap <buffer><Leader>f :<C-u>ClangFormat<CR>
-autocmd FileType c,cpp,objc vnoremap <buffer><Leader>f :ClangFormat<CR>
-
-" vim-clang
-" disable auto completion for vim-clang
-let g:clang_auto = 0
-" default 'longest' can not work with neocomplete
-let g:clang_c_completeopt = 'menuone'
-let g:clang_cpp_completeopt = 'menuone'
-let g:clang_c_options = '-std=gnu11'
-let g:clang_cpp_options = '-std=c++11 -stdlib=libc++'
-" clang-format in vim-clang plugin
-let g:clang_enable_format_command = 0
-
-" vim-clang-format
-let g:clang_format#detect_style_file = 1
